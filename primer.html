@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script
+	  src="https://code.jquery.com/jquery-3.6.1.js"
+	  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	  crossorigin="anonymous">
+	</script>
+	<title></title>
+</head>
+<body>
+
+	<div id="console">
+		<label for="prime">Find all primes below what number?</label><br><br>
+		<input type="text" id="prime" name="prime">
+		<button id="Clicker">Go</button>
+	</div>
+
+	<script>
+		function primer(x) {
+			var counter1 = 2;
+			var primes = [];
+			while (counter1 < x) {
+				var counter2 = 1;
+				var d = [];
+				while (counter2 < counter1) {
+					if (counter1%counter2 == 0) {
+						d.push(counter2);	
+					};
+					counter2++;
+				};
+				if (d.length < 2) {
+					primes.push(counter1);
+				};
+				counter1++;
+			};
+			$("#console").empty();
+			for (i in primes) {
+				$("#console").append(primes[i] + " ");
+			}
+			
+
+		};
+		$("#Clicker").click(function() {
+			var prime = document.getElementById("prime").value;
+			console.log(prime);
+			$("#console").empty();
+			primer(prime);
+		});
+	</script>
+
+</body>
+</html>
